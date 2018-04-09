@@ -13,11 +13,16 @@ public final class DecimalFractionalNumber {
         int numLength = number.length();
         int commonIndex = number.indexOf(",");
 
+        if(commonIndex == -1){
+            commonIndex = numLength;
+        }
+
         for (int i = 0; i < commonIndex; i += 9) {
             if (((commonIndex - i) > 9)) {
                 String part = number.substring(i, i + 9);
                 Integer partToInt = Integer.parseInt(part);
                 wholeNumber.add(partToInt);
+
             } else {
                 String lastPart = number.substring(i, commonIndex);
                 Integer lastPartToInt = Integer.parseInt(lastPart);
@@ -26,16 +31,18 @@ public final class DecimalFractionalNumber {
             }
         }
 
-        for (int i = commonIndex + 1; i < numLength; i += 9) {
-            if (((numLength - i) > 9)) {
-                String part = number.substring(i, i + 9);
-                Integer partToInt = Integer.parseInt(part);
-                fractionalNumber.add(partToInt);
-            } else {
-                String lastPart = number.substring(i, numLength);
-                Integer lastPartToInt = Integer.parseInt(lastPart);
-                fractionalNumber.add(lastPartToInt);
-                break;
+        if(commonIndex != numLength){
+            for (int i = commonIndex + 1; i < numLength; i += 9) {
+                if (((numLength - i) > 9)) {
+                    String part = number.substring(i, i + 9);
+                    Integer partToInt = Integer.parseInt(part);
+                    fractionalNumber.add(partToInt);
+                } else {
+                    String lastPart = number.substring(i, numLength);
+                    Integer lastPartToInt = Integer.parseInt(lastPart);
+                    fractionalNumber.add(lastPartToInt);
+                    break;
+                }
             }
         }
     }
