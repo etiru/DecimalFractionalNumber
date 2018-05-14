@@ -1,13 +1,10 @@
 package DecimalFractiomalNumber;
 
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 import static java.lang.Math.max;
-import static java.lang.Math.min;
 import static java.lang.Math.pow;
 
 public final class DecimalFractionalNumber {
@@ -30,10 +27,6 @@ public final class DecimalFractionalNumber {
         fractionalNumber.add(0);
     }
 
-    //    public DecimalFractionalNumber(String wholeNumber, String fractionalNumber){
-//
-//    }
-
     /**
      * Основной конструктор, который обрабатывает строку
      * строчка разбивается на части по 9 цифр, и каждая часть добавляется в лист wholeNumber и fractionalNumber
@@ -42,19 +35,31 @@ public final class DecimalFractionalNumber {
      * листа 9
      */
     public DecimalFractionalNumber(String number) {
+//        if (!number.matches("^(-)?\\d+(.)?\\d+$"))
+//            throw new IllegalArgumentException("invalid string format");
+
         this.wholeNumber = new ArrayList<Integer>();
         this.fractionalNumber = new ArrayList<Integer>();
+
+        boolean negative;
+
+        if (number.charAt(0) == '-') {
+            negative = true;
+            number = number.replaceAll("-", "");
+        } else
+            negative = false;
+
         int numLength = number.length();
         int commonIndex = number.indexOf(".");
 
-        /**
+        /*
          * если точки нету
          */
         if (commonIndex == -1) {
             commonIndex = numLength;
         }
 
-        /**
+        /*
          * В этом условии мы ищем (лишние) цифры, которые не войдут в группу по 9 и ставим в листе wholeNumber на первое
          * (нулевое место)
          */
@@ -64,7 +69,7 @@ public final class DecimalFractionalNumber {
             wholeNumber.add(lastPartToInt);
         }
 
-        /**
+        /*
          * заполняем лист wholeNumber
          */
         for (int i = commonIndex % 9; i < commonIndex; i += 9) {   //1244 (65646466) ()   55464565456654.654545
@@ -73,7 +78,7 @@ public final class DecimalFractionalNumber {
             wholeNumber.add(partToInt);
         }
 
-        /**
+        /*
         * заполнение fractionalNumber
         */
         for (int i = commonIndex + 1; i < numLength; i += 9) {
@@ -88,6 +93,9 @@ public final class DecimalFractionalNumber {
                 fractionalNumber.add(lastPartToInt);
             }
         }
+
+        if (negative)
+            invert();
     }
 
 
@@ -125,34 +133,52 @@ public final class DecimalFractionalNumber {
         for (int i = 0; i < difference; i++) {
             fractionalNumber.add(0);
         }
-//        newWholeNumber.addAll(fractionalNumber);
-//        fractionalNumber = newWholeNumber;
-
     }
 
-    /**
-     *
-     */
-    private List<Integer> addition(List<Integer> partNumber, List<Integer> otherPartNumber) {
-        ArrayList<Integer> resultPartNumber = new ArrayList<Integer>();
-        int partNumberSize = partNumber.size();
-        int transfer = 0;
-
-        for (int i = partNumberSize - 1; i >= 0; i--) {
-            int sum = partNumber.get(i) + otherPartNumber.get(i) + transfer;
-            if (Math.abs(sum) >= 1000000000) {
-                transfer = sum / 1000000000;
-                int newSum = sum % 1000000000;
-                resultPartNumber.add(newSum);
-            } else {
-                transfer = sum / 1000000000;
-                resultPartNumber.add(sum);
-            }
+    public boolean positive() {
+        for (int num : wholeNumber) {
+            if (num > 0) return true;
+            if (num < 0) return false;
         }
-        if(transfer != 0) resultPartNumber.add(transfer);
-        Collections.reverse(resultPartNumber);
-        System.out.println("TRANSFER " + transfer);
-        return resultPartNumber;
+        for (int num : fractionalNumber) {
+            if (num > 0) return true;
+            if (num < 0) return false;
+        }
+        return true;
+    }
+
+    private void mending() {
+        boolean negative = !positive();
+        if (negative)
+            invert();
+
+        for (int i = 1; i < fractionalNumber.size(); i++)
+            if (fractionalNumber.get(i) < 0) {
+                fractionalNumber.set(i, 1000000000 + fractionalNumber.get(i));
+                fractionalNumber.set(i - 1, fractionalNumber.get(i - 1) - 1);
+            }
+
+
+        if (!fractionalNumber.isEmpty() && fractionalNumber.get(0) < 0) {
+            fractionalNumber.set(0, 1000000000 + fractionalNumber.get(0));
+            wholeNumber.set(wholeNumber.size() - 1, wholeNumber.get(wholeNumber.size() - 1) - 1);
+        }
+
+        for (int i = 1; i < wholeNumber.size(); i++)
+            if (wholeNumber.get(i) < 0) {
+                wholeNumber.set(i, 1000000000 + wholeNumber.get(i));
+                wholeNumber.set(i - 1, wholeNumber.get(i - 1) - 1);
+            }
+
+        if (negative)
+            invert();
+    }
+
+    private void invert() {
+        for (int i = 0; i < wholeNumber.size(); i++)
+            wholeNumber.set(i, -wholeNumber.get(i));
+        for (int i = 0; i < fractionalNumber.size(); i++)
+            fractionalNumber.set(i, -fractionalNumber.get(i));
     }
 
     /**
@@ -167,11 +193,40 @@ public final class DecimalFractionalNumber {
         this.addZeroFractional(maxFractionalSize);
         other.addZeroFractional(maxFractionalSize);
 
-        List<Integer> resultFractionalNumber = addition(fractionalNumber, other.fractionalNumber);
-        List<Integer> resultWholeNumber = addition(wholeNumber, other.wholeNumber);
+        ArrayList<Integer> resultFractionalNumber = new ArrayList<Integer>();
+        ArrayList<Integer> resultWholeNumber = new ArrayList<Integer>();
 
+        int transfer = 0;
+        for (int i = maxFractionalSize - 1; i >= 0; i--) {
+            int sum = fractionalNumber.get(i) + other.fractionalNumber.get(i) + transfer;
+            if (Math.abs(sum) >= 1000000000) {
+                transfer = sum / 1000000000;
+                int newSum = sum % 1000000000;
+                resultFractionalNumber.add(newSum);
+            } else {
+                transfer = sum / 1000000000;
+                resultFractionalNumber.add(sum);
+            }
+        }
+        Collections.reverse(resultFractionalNumber);
+
+        for (int i = maxWholeNumberSize - 1; i >= 0; i--) {
+            int sum = wholeNumber.get(i) + other.wholeNumber.get(i) + transfer;
+            if (Math.abs(sum) >= 1000000000) {
+                transfer = sum / 1000000000;
+                int newSum = sum % 1000000000;
+                resultWholeNumber.add(newSum);
+            } else {
+                transfer = sum / 1000000000;
+                resultWholeNumber.add(sum);
+            }
+        }
+        if (transfer != 0)
+            resultWholeNumber.add(transfer);
+        Collections.reverse(resultWholeNumber);
 
         DecimalFractionalNumber resultNumber = new DecimalFractionalNumber(resultWholeNumber, resultFractionalNumber);
+        resultNumber.mending();
         return resultNumber;
     }
 
@@ -179,14 +234,18 @@ public final class DecimalFractionalNumber {
     @Override
     public String toString() {
         StringBuffer resultStr = new StringBuffer();
-        resultStr.append(wholeNumber.get(0));
-        for (int i = 1; i < wholeNumber.size(); i++) {
-            resultStr.append(String.format("%09d", wholeNumber.get(i)));
-        }
+
+        if (!positive()) resultStr.append("-");
+        resultStr.append(Math.abs(wholeNumber.get(0)));
+
+        for (int i = 1; i < wholeNumber.size(); i++)
+            resultStr.append(String.format("%09d", Math.abs(wholeNumber.get(i))));
+
         resultStr.append('.');
-        for (int i = 0; i < fractionalNumber.size(); i++) {
-            resultStr.append(String.format("%09d", fractionalNumber.get(i)));
-        }
+
+        for (int i = 0; i < fractionalNumber.size(); i++)
+            resultStr.append(String.format("%09d", Math.abs(fractionalNumber.get(i))));
+
         return resultStr.toString();
     }
 
