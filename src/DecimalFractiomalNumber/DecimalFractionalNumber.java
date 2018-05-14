@@ -19,11 +19,10 @@ public final class DecimalFractionalNumber {
         fractionalNumber = new ArrayList<>(fractionalPart);
     }
 
-
     public DecimalFractionalNumber() {
-        wholeNumber = new ArrayList<Integer>();
+        wholeNumber = new ArrayList<>();
         wholeNumber.add(0);
-        fractionalNumber = new ArrayList<Integer>();
+        fractionalNumber = new ArrayList<>();
         fractionalNumber.add(0);
     }
 
@@ -35,8 +34,8 @@ public final class DecimalFractionalNumber {
      * листа 9
      */
     public DecimalFractionalNumber(String number) {
-//        if (!number.matches("^(-)?\\d+(.)?\\d+$"))
-//            throw new IllegalArgumentException("invalid string format");
+        if (!number.matches("^(-)?\\d+(.\\d+)?$"))
+            throw new IllegalArgumentException("invalid string format");
 
         this.wholeNumber = new ArrayList<Integer>();
         this.fractionalNumber = new ArrayList<Integer>();
@@ -95,9 +94,8 @@ public final class DecimalFractionalNumber {
         }
 
         if (negative)
-            invert();
+            unaryMinus();
     }
-
 
     public List<Integer> getWholeNumber() {
         return wholeNumber;
@@ -127,7 +125,6 @@ public final class DecimalFractionalNumber {
             throw new IllegalArgumentException("");
         if (expectedCount == fractionalNumber.size())
             return;
-        ArrayList<Integer> newFractionalNumber = new ArrayList<>();
         int difference = expectedCount - fractionalNumber.size();
 
         for (int i = 0; i < difference; i++) {
@@ -150,7 +147,7 @@ public final class DecimalFractionalNumber {
     private void mending() {
         boolean negative = !positive();
         if (negative)
-            invert();
+            unaryMinus();
 
         for (int i = 1; i < fractionalNumber.size(); i++)
             if (fractionalNumber.get(i) < 0) {
@@ -171,10 +168,10 @@ public final class DecimalFractionalNumber {
             }
 
         if (negative)
-            invert();
+            unaryMinus();
     }
 
-    private void invert() {
+    private void unaryMinus() {
         for (int i = 0; i < wholeNumber.size(); i++)
             wholeNumber.set(i, -wholeNumber.get(i));
         for (int i = 0; i < fractionalNumber.size(); i++)
@@ -193,8 +190,8 @@ public final class DecimalFractionalNumber {
         this.addZeroFractional(maxFractionalSize);
         other.addZeroFractional(maxFractionalSize);
 
-        ArrayList<Integer> resultFractionalNumber = new ArrayList<Integer>();
-        ArrayList<Integer> resultWholeNumber = new ArrayList<Integer>();
+        ArrayList<Integer> resultFractionalNumber = new ArrayList<>();
+        ArrayList<Integer> resultWholeNumber = new ArrayList<>();
 
         int transfer = 0;
         for (int i = maxFractionalSize - 1; i >= 0; i--) {
@@ -230,10 +227,9 @@ public final class DecimalFractionalNumber {
         return resultNumber;
     }
 
-
     @Override
     public String toString() {
-        StringBuffer resultStr = new StringBuffer();
+        StringBuilder resultStr = new StringBuilder();
 
         if (!positive()) resultStr.append("-");
         resultStr.append(Math.abs(wholeNumber.get(0)));
@@ -249,7 +245,6 @@ public final class DecimalFractionalNumber {
         return resultStr.toString();
     }
 
-
     @Override
     public boolean equals(Object object) {
         if (this == object)
@@ -260,10 +255,4 @@ public final class DecimalFractionalNumber {
         }
         return false;
     }
-
-
-//    public DecimalFractionalNumber unaryMinus(){
-//          String resultString = "+" + number;
-//        return new DecimalFractionalNumber(-wholeNumber, );
-//    }
 }

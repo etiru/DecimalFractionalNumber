@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="120cbe5d-754f-49e4-be57-575c74b3c99c" name="Default" comment="">
+    <list default="true" id="120cbe5d-754f-49e4-be57-575c74b3c99c" name="Default" comment="released: constructor 63%, method plus 99%, method ? 0%,tests 10%&#10;Реализовал метод plus, конструктор, принимающий строку, написаны некоторые тесты">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JAVA/Main.class" afterPath="$PROJECT_DIR$/out/production/JAVA/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DecimalFractiomalNumber/DecimalFractionalNumber.java" afterPath="$PROJECT_DIR$/src/DecimalFractiomalNumber/DecimalFractionalNumber.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/DecimalFractionalNumber/DecimalFractionalNumberTest.java" afterPath="$PROJECT_DIR$/test/DecimalFractionalNumber/DecimalFractionalNumberTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,23 +20,11 @@
       <file leaf-file-name="DecimalFractionalNumber.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DecimalFractiomalNumber/DecimalFractionalNumber.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state relative-caret-position="2703">
+              <caret line="232" column="0" lean-forward="true" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6630#6639#0" expanded="true" />
-                <element signature="e#6703#6712#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArrayList.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/ArrayList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="644" column="7" lean-forward="true" selection-start-line="644" selection-start-column="7" selection-end-line="644" selection-end-column="7" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -44,8 +32,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="106" lean-forward="true" selection-start-line="7" selection-start-column="84" selection-end-line="8" selection-end-column="106" />
+            <state relative-caret-position="204">
+              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -54,8 +42,8 @@
       <file leaf-file-name="DecimalFractionalNumberTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/DecimalFractionalNumber/DecimalFractionalNumberTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="27" column="90" lean-forward="false" selection-start-line="27" selection-start-column="90" selection-end-line="27" selection-end-column="90" />
+            <state relative-caret-position="156">
+              <caret line="15" column="109" lean-forward="false" selection-start-line="15" selection-start-column="108" selection-end-line="15" selection-end-column="109" />
               <folding />
             </state>
           </provider>
@@ -90,9 +78,9 @@
         <option value="$PROJECT_DIR$/src/DecimalFractiomalNumber/DecimalFractionalNumberTest.groovy" />
         <option value="$PROJECT_DIR$/src/DecimalFractiomalNumber/DecimalFractionalNumberr.java" />
         <option value="$PROJECT_DIR$/test/DecimalFractionalNumber/DecimalFractionalNumber.java" />
+        <option value="$PROJECT_DIR$/test/DecimalFractionalNumber/DecimalFractionalNumberTest.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/DecimalFractiomalNumber/DecimalFractionalNumber.java" />
-        <option value="$PROJECT_DIR$/test/DecimalFractionalNumber/DecimalFractionalNumberTest.java" />
       </list>
     </option>
   </component>
@@ -177,7 +165,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.DecimalFractionalNumberTest.plus">
+  <component name="RunManager" selected="JUnit.DecimalFractionalNumberTest">
     <configuration name="DecimalFractionalNumberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -192,6 +180,31 @@
       <option name="MAIN_CLASS_NAME" value="DecimalFractionalNumber.DecimalFractionalNumberTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="DecimalFractionalNumberTest.minus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="DecimalFractionalNumber.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="JAVA" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="DecimalFractionalNumber" />
+      <option name="MAIN_CLASS_NAME" value="DecimalFractionalNumber.DecimalFractionalNumberTest" />
+      <option name="METHOD_NAME" value="minus" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -337,18 +350,20 @@
       <properties />
       <listeners />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="Application.Quiz" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.DecimalFractionalNumberTest.plus" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.DecimalFractionalNumberTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.DecimalFractionalNumberTest.minus" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.DecimalFractionalNumberTest.plus" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.DecimalFractionalNumberTest" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Quiz" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.DecimalFractionalNumberTest" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.DecimalFractionalNumberTest.plus" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.DecimalFractionalNumberTest.minus" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Quiz" />
       </list>
     </recent_temporary>
   </component>
@@ -412,38 +427,45 @@
       <option name="project" value="LOCAL" />
       <updated>1526304864189</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="released: constructor 63%, method plus 99%, method ? 0%,tests 10%&#10;Реализовал метод plus, конструктор, принимающий строку, написаны некоторые тесты">
+      <created>1526311736761</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1526311736761</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DecimalFractionalNumberTest - 2018.05.14 at 18h 23m 50s.xml">
+    <history-entry file="DecimalFractionalNumberTest - 2018.05.14 at 18h 30m 12s.xml">
       <configuration name="DecimalFractionalNumberTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DecimalFractionalNumberTest_plus - 2018.04.13 at 16h 09m 38s.xml">
-      <configuration name="DecimalFractionalNumberTest.plus" configurationId="JUnit" />
+    <history-entry file="DecimalFractionalNumberTest - 2018.05.14 at 18h 31m 20s.xml">
+      <configuration name="DecimalFractionalNumberTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DecimalFractionalNumberTest_plus - 2018.05.14 at 16h 46m 27s.xml">
-      <configuration name="DecimalFractionalNumberTest.plus" configurationId="JUnit" />
+    <history-entry file="DecimalFractionalNumberTest - 2018.05.14 at 18h 35m 28s.xml">
+      <configuration name="DecimalFractionalNumberTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DecimalFractionalNumberTest_plus - 2018.05.14 at 16h 50m 48s.xml">
-      <configuration name="DecimalFractionalNumberTest.plus" configurationId="JUnit" />
+    <history-entry file="DecimalFractionalNumberTest - 2018.05.14 at 18h 41m 07s.xml">
+      <configuration name="DecimalFractionalNumberTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DecimalFractionalNumberTest_plus - 2018.05.14 at 16h 50m 55s.xml">
-      <configuration name="DecimalFractionalNumberTest.plus" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DecimalFractionalNumberTest_plus - 2018.05.14 at 16h 53m 42s.xml">
-      <configuration name="DecimalFractionalNumberTest.plus" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DecimalFractionalNumberTest_plus - 2018.05.14 at 16h 55m 06s.xml">
-      <configuration name="DecimalFractionalNumberTest.plus" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DecimalFractionalNumberTest_plus - 2018.05.14 at 18h 24m 29s.xml">
-      <configuration name="DecimalFractionalNumberTest.plus" configurationId="JUnit" />
+    <history-entry file="DecimalFractionalNumberTest_minus - 2018.05.14 at 18h 30m 58s.xml">
+      <configuration name="DecimalFractionalNumberTest.minus" configurationId="JUnit" />
     </history-entry>
     <history-entry file="DecimalFractionalNumberTest_plus - 2018.05.14 at 18h 24m 49s.xml">
       <configuration name="DecimalFractionalNumberTest.plus" configurationId="JUnit" />
     </history-entry>
     <history-entry file="DecimalFractionalNumberTest_plus - 2018.05.14 at 18h 26m 07s.xml">
+      <configuration name="DecimalFractionalNumberTest.plus" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DecimalFractionalNumberTest_plus - 2018.05.14 at 18h 31m 10s.xml">
+      <configuration name="DecimalFractionalNumberTest.plus" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DecimalFractionalNumberTest_plus - 2018.05.14 at 18h 33m 19s.xml">
+      <configuration name="DecimalFractionalNumberTest.plus" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DecimalFractionalNumberTest_plus - 2018.05.14 at 18h 34m 07s.xml">
       <configuration name="DecimalFractionalNumberTest.plus" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -459,7 +481,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5322108" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40729" sideWeight="0.46778917" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2630745" sideWeight="0.46778917" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -518,11 +540,12 @@
     <MESSAGE value="released 0.1 constructor and method plus" />
     <MESSAGE value="released: constructor 63%, method plus 44%, method ? 0%,tests 2.5%" />
     <MESSAGE value="released: constructor 63%, method plus 50%, method ? 0%,tests 2.5%&#10;Р" />
-    <option name="LAST_COMMIT_MESSAGE" value="released: constructor 63%, method plus 50%, method ? 0%,tests 2.5%&#10;Р" />
+    <MESSAGE value="released: constructor 63%, method plus 99%, method ? 0%,tests 10%&#10;Реализовал метод plus, конструктор, принимающий строку, написаны некоторые тесты" />
+    <option name="LAST_COMMIT_MESSAGE" value="released: constructor 63%, method plus 99%, method ? 0%,tests 10%&#10;Реализовал метод plus, конструктор, принимающий строку, написаны некоторые тесты" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="40" />
+      <option name="time" value="43" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -533,8 +556,6 @@
           <caret line="179" column="44" lean-forward="false" selection-start-line="179" selection-start-column="44" selection-end-line="179" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6630#6639#0" expanded="true" />
-            <element signature="e#6703#6712#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -561,8 +582,6 @@
           <caret line="91" column="5" lean-forward="false" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6630#6639#0" expanded="true" />
-            <element signature="e#6703#6712#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -591,8 +610,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6630#6639#0" expanded="true" />
-            <element signature="e#6703#6712#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -621,8 +638,6 @@
           <caret line="91" column="5" lean-forward="true" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6630#6639#0" expanded="true" />
-            <element signature="e#6703#6712#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -651,8 +666,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6630#6639#0" expanded="true" />
-            <element signature="e#6703#6712#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -681,8 +694,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6630#6639#0" expanded="true" />
-            <element signature="e#6703#6712#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -711,8 +722,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6630#6639#0" expanded="true" />
-            <element signature="e#6703#6712#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -731,8 +740,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6630#6639#0" expanded="true" />
-            <element signature="e#6703#6712#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -751,8 +758,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6630#6639#0" expanded="true" />
-            <element signature="e#6703#6712#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -784,21 +789,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="106" lean-forward="true" selection-start-line="7" selection-start-column="84" selection-end-line="8" selection-end-column="106" />
+        <state relative-caret-position="204">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DecimalFractiomalNumber/DecimalFractionalNumber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6630#6639#0" expanded="true" />
-            <element signature="e#6703#6712#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -810,10 +803,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/DecimalFractiomalNumber/DecimalFractionalNumber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2703">
+          <caret line="232" column="0" lean-forward="true" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/DecimalFractionalNumber/DecimalFractionalNumberTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="27" column="90" lean-forward="false" selection-start-line="27" selection-start-column="90" selection-end-line="27" selection-end-column="90" />
+        <state relative-caret-position="156">
+          <caret line="15" column="109" lean-forward="false" selection-start-line="15" selection-start-column="108" selection-end-line="15" selection-end-column="109" />
           <folding />
         </state>
       </provider>
