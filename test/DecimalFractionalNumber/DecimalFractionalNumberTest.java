@@ -10,5 +10,7 @@ public class DecimalFractionalNumberTest {
     public void plus(){
         assertEquals( new DecimalFractionalNumber("30"),
             new DecimalFractionalNumber("15").plus(new DecimalFractionalNumber("15")));
+        assertEquals(new DecimalFractionalNumber("30.30"),
+                new DecimalFractionalNumber("15.15").plus(new DecimalFractionalNumber("15.15")));
     }
 }
