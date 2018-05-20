@@ -1,6 +1,8 @@
 package DecimalFractiomalNumber;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -10,6 +12,7 @@ import static java.lang.Math.pow;
 public final class DecimalFractionalNumber {
     private ArrayList<Integer> wholeNumber;
     private ArrayList<Integer> fractionalNumber;
+    private static int threshold = 1000000000;
 
     private DecimalFractionalNumber(List<Integer> wholePart, List<Integer> fractionalPart) {
         if (wholePart == null || fractionalPart == null)
@@ -17,6 +20,8 @@ public final class DecimalFractionalNumber {
 
         wholeNumber = new ArrayList<>(wholePart);
         fractionalNumber = new ArrayList<>(fractionalPart);
+        delZeroFractional();
+        delZeroWholeNumber();
     }
 
     public DecimalFractionalNumber() {
@@ -24,6 +29,11 @@ public final class DecimalFractionalNumber {
         wholeNumber.add(0);
         fractionalNumber = new ArrayList<>();
         fractionalNumber.add(0);
+    }
+
+    public DecimalFractionalNumber(DecimalFractionalNumber newObject) {
+        wholeNumber = new ArrayList<>(newObject.wholeNumber);
+        fractionalNumber = new ArrayList<>(newObject.fractionalNumber);
     }
 
     /**
@@ -95,6 +105,20 @@ public final class DecimalFractionalNumber {
 
         if (negative)
             unaryMinus();
+        delZeroFractional();
+        delZeroWholeNumber();
+    }
+
+    public DecimalFractionalNumber(int num) {
+        wholeNumber = new ArrayList<>();
+        fractionalNumber = new ArrayList<>();
+
+        if (num / threshold != 0)
+            wholeNumber.add(num / threshold);
+
+        wholeNumber.add(num % threshold);
+
+        fractionalNumber.add(0);
     }
 
     public List<Integer> getWholeNumber() {
@@ -144,6 +168,10 @@ public final class DecimalFractionalNumber {
         return true;
     }
 
+    /**
+     * Метод mending делает "Ремонт" "Выравниевание" знака по каждому элементу листа. Напримерм может иногда получается
+     * ситуация [1000, 0 , -4746] = после получится [1000, 0, 4746]
+     */
     private void mending() {
         boolean negative = !positive();
         if (negative)
@@ -151,19 +179,19 @@ public final class DecimalFractionalNumber {
 
         for (int i = 1; i < fractionalNumber.size(); i++)
             if (fractionalNumber.get(i) < 0) {
-                fractionalNumber.set(i, 1000000000 + fractionalNumber.get(i));
+                fractionalNumber.set(i, threshold + fractionalNumber.get(i));
                 fractionalNumber.set(i - 1, fractionalNumber.get(i - 1) - 1);
             }
 
 
         if (!fractionalNumber.isEmpty() && fractionalNumber.get(0) < 0) {
-            fractionalNumber.set(0, 1000000000 + fractionalNumber.get(0));
+            fractionalNumber.set(0, threshold + fractionalNumber.get(0));
             wholeNumber.set(wholeNumber.size() - 1, wholeNumber.get(wholeNumber.size() - 1) - 1);
         }
 
         for (int i = 1; i < wholeNumber.size(); i++)
             if (wholeNumber.get(i) < 0) {
-                wholeNumber.set(i, 1000000000 + wholeNumber.get(i));
+                wholeNumber.set(i, threshold + wholeNumber.get(i));
                 wholeNumber.set(i - 1, wholeNumber.get(i - 1) - 1);
             }
 
@@ -221,15 +249,107 @@ public final class DecimalFractionalNumber {
         if (transfer != 0)
             resultWholeNumber.add(transfer);
         Collections.reverse(resultWholeNumber);
-
+        delZeroFractional();
+        delZeroWholeNumber();
+        other.delZeroFractional();
         DecimalFractionalNumber resultNumber = new DecimalFractionalNumber(resultWholeNumber, resultFractionalNumber);
         resultNumber.mending();
+
         return resultNumber;
     }
 
+    public DecimalFractionalNumber minus(DecimalFractionalNumber other) {
+        DecimalFractionalNumber thisObject = new DecimalFractionalNumber(wholeNumber, fractionalNumber);
+        DecimalFractionalNumber otherObject = new DecimalFractionalNumber(other.wholeNumber, other.fractionalNumber);
+        otherObject.unaryMinus();
+        delZeroFractional();
+        delZeroWholeNumber();
+        DecimalFractionalNumber resultNumber = thisObject.plus(otherObject);
+
+        return resultNumber;
+    }
+
+    private List<Byte> numInArray(int num) {
+        List<Byte> result = new ArrayList<>();
+        while (num != 0) {
+            result.add((byte) (num % 10));
+            num /= 10;
+        }
+        Collections.reverse(result);
+        return result;
+    }
+
+    public DecimalFractionalNumber leftShift(int power) {
+        DecimalFractionalNumber result = new DecimalFractionalNumber(this);
+
+        for (int i = 0; i < power; i++) {
+            DecimalFractionalNumber tmp = new DecimalFractionalNumber(result);
+            for (int j = 0; j < 4; j++) {
+                result = result.plus(tmp);
+            }
+            result = result.plus(result);
+        }
+
+    return result;
+    }
+
+//    public DecimalFractionalNumber rightShift(int power){
+//
+//    }
+
+    public DecimalFractionalNumber multiplication(DecimalFractionalNumber other){
+    List<Integer> secondNum = new ArrayList<>(other.wholeNumber);
+    DecimalFractionalNumber result = new DecimalFractionalNumber();
+
+    return result;
+    }
+
+    private void delZeroFractional(){
+        int countOfZero = 0;
+        for(int i = fractionalNumber.size() - 1; i >= 0; i--){
+            if(fractionalNumber.get(i) == 0)
+                countOfZero++;
+            else break;
+        }
+        fractionalNumber = new ArrayList<>(fractionalNumber.subList(0, fractionalNumber.size() - countOfZero));
+        if(fractionalNumber.isEmpty())
+            fractionalNumber.add(0);
+    }
+
+    private void delZeroWholeNumber(){
+        int countOfZero = 0;
+        for(int i = 0; i < wholeNumber.size(); i++){
+            if(wholeNumber.get(i) == 0)
+                countOfZero++;
+            else break;
+        }
+        wholeNumber = new ArrayList<>(wholeNumber.subList(countOfZero, wholeNumber.size()));
+        if(wholeNumber.isEmpty())
+            wholeNumber.add(0);
+    }
     @Override
     public String toString() {
         StringBuilder resultStr = new StringBuilder();
+
+        int k = 0;
+        int absenceFractional = 0;
+        for(int i = 0; i < fractionalNumber.size(); i++){
+            if(fractionalNumber.get(i) != 0){
+                k = 1;
+                break;
+            }
+        }
+        for (int i = 0; i < wholeNumber.size(); i++){
+            if(wholeNumber.get(i) != 0) {
+                k = 1;
+                break;
+            }
+        }
+        if(k == 0) {
+            resultStr.append("0");
+            return resultStr.toString();
+        }
+
 
         if (!positive()) resultStr.append("-");
         resultStr.append(Math.abs(wholeNumber.get(0)));
@@ -237,11 +357,12 @@ public final class DecimalFractionalNumber {
         for (int i = 1; i < wholeNumber.size(); i++)
             resultStr.append(String.format("%09d", Math.abs(wholeNumber.get(i))));
 
-        resultStr.append('.');
+        if(!(fractionalNumber.size() == 1 && fractionalNumber.get(0) == 0)) {
+            resultStr.append('.');
 
-        for (int i = 0; i < fractionalNumber.size(); i++)
-            resultStr.append(String.format("%09d", Math.abs(fractionalNumber.get(i))));
-
+            for (int i = 0; i < fractionalNumber.size(); i++)
+                resultStr.append(String.format("%09d", Math.abs(fractionalNumber.get(i))));
+        }
         return resultStr.toString();
     }
 
@@ -250,8 +371,7 @@ public final class DecimalFractionalNumber {
         if (this == object)
             return true;
         if (object instanceof DecimalFractionalNumber) {
-            return this.wholeNumber.equals(((DecimalFractionalNumber) object).wholeNumber) &&
-                    this.fractionalNumber.equals(((DecimalFractionalNumber) object).fractionalNumber);
+            return this.toString().equals(object.toString());
         }
         return false;
     }
